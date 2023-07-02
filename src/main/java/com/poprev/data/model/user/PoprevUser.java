@@ -27,6 +27,6 @@ public class PoprevUser extends BaseEntity {
     @Column(name = "balance")
     private BigDecimal balance;
 
-    @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
+//    @OneToMany(mappedBy = "user")
+//    private List<Token> tokens;
 }

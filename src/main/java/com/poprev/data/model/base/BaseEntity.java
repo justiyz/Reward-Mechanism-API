@@ -1,9 +1,6 @@
 package com.poprev.data.model.base;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +14,21 @@ import java.time.LocalDateTime;
 public class BaseEntity {
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_date")
+    @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "modified_date")
     private LocalDateTime modifiedDate;
+
+    @PrePersist
+    protected void onCreate() {
+        createdDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modifiedDate = LocalDateTime.now();
+    }
 
 }
