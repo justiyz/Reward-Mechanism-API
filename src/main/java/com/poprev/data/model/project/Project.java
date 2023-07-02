@@ -23,8 +23,8 @@ public class Project extends BaseEntity {
     @Column(name = "project_name")
     private String projectName;
 
-    @Column(name = "project_amount")
-    private BigDecimal projectAmount;
+    @Column(name = "target_amount")
+    private BigDecimal targetAmount;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "project_status")

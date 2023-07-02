@@ -16,6 +16,9 @@ public class Artist extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "stage_name")
+    private String stageName;
+
+    @Column(name = "full_name")
+    private String fullName;
 }
