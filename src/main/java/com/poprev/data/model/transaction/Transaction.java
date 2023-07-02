@@ -22,14 +22,22 @@ public class Transaction extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "transaction_type")
     private TransactionType transactionType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "transaction_status")
+    private TransactionStatus transactionStatus;
 
     @Column(name = "transaction_amount")
     private BigDecimal transactionAmount;
 
     @Column(name = "transaction_date")
     private LocalDateTime transactionDate;
+
+    @Column(name = "transaction_ref")
+    private String transactionReference;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
