@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -22,7 +23,7 @@ public class ProjectController {
     ProjectServiceImplementation projectServiceImpl;
 
     @PostMapping("")
-    public ResponseEntity<?> createProject(@RequestBody ProjectDto dto) throws PoprevException {
+    public ResponseEntity<?> createProject(@Valid @RequestBody ProjectDto dto) throws PoprevException {
 
         projectServiceImpl.createProject(dto);
         ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Project created", "success");

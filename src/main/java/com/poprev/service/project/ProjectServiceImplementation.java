@@ -28,7 +28,9 @@ public class ProjectServiceImplementation implements ProjectService {
 
 
     private String generateRandomString() {
-        return UUID.randomUUID().toString().replace("-", "").substring(0, 4);
+        return UUID.randomUUID().toString()
+                .replace("-", "")
+                .substring(0, 4);
     }
 
     @Override

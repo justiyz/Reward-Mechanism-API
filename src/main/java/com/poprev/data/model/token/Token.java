@@ -5,6 +5,7 @@ import com.poprev.data.model.project.Project;
 import com.poprev.data.model.user.PoprevUser;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.math.BigDecimal;
 
@@ -26,8 +27,10 @@ public class Token extends BaseEntity {
     private String tokenName;
 
     @Column(name = "token_value")
+    @NonNull
     private BigDecimal tokenValue;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
