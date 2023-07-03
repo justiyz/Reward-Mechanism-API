@@ -30,8 +30,4 @@ public class PoprevUser extends BaseEntity {
     @Column(name = "email")
     private String email;
 
-
-
-//    @OneToMany(mappedBy = "user")
-//    private List<Token> tokens;
 }
