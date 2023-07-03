@@ -1,5 +1,7 @@
 package com.poprev.web.controller.token;
 
+import com.poprev.data.model.investment.Investment;
+import com.poprev.service.dto.InvestmentDto;
 import com.poprev.service.dto.PurchaseTokenDto;
 import com.poprev.service.exception.PoprevException;
 import com.poprev.service.response.TransactionResponse;
@@ -34,5 +36,12 @@ public class TokenController {
         TransactionResponse response = tokenServiceImpl.findAllTransactionsOfAToken(tokenId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/investment/{userId}/{investmentId}")
+    public ResponseEntity<?> findUserInvestmentDetails(@PathVariable Long userId, @PathVariable Long investmentId) throws PoprevException {
+        Investment investment = tokenServiceImpl.findUserInvestmentDetails(userId, investmentId);
+        return new ResponseEntity<>(investment, HttpStatus.OK);
+    }
+
 
 }
